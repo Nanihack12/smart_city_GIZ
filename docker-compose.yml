@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./Server
+    ports:
+      - "3000:3000"
+    networks:
+      - postgres-network
+    depends_on:
+      postgres:
+        condition: service_healthy  # Wait until postgres is healthy
+
+  postgres:
+    image: postgres:16.2
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: bypldb
+    ports:
+      - "5433:5432"
+    networks:
+      - postgres-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]  # Health check command
+      interval: 10s
+      retries: 5
+
+networks:
+  postgres-network:
+    driver: bridge

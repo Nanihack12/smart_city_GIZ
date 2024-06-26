@@ -1,0 +1,33 @@
+.root {
+    margin-top: 16px;
+    padding: 24px;
+    background: linear-gradient(to bottom, #0052D4, #65C7F7, #9CECFB);
+    border-radius: 16px;
+  }
+  
+  .alarmLogItem {
+    position: relative;
+    margin-bottom: 16px;
+    padding: 16px;
+    background-color: #092b4d; /* Background color for log items */
+    border-radius: 8px;
+    color: #fff;
+  }
+  
+  .closeButton {
+    position: relative;
+    bottom: 8px; /* Adjusting bottom position */
+    right: 8px; /* Adjusting right position */
+    color: #fff;
+  }
+  
+  .closeButtonText {
+    color: #fff;
+  }
+  
+  .alarmIcon {
+    margin-right: 8px;
+    font-size: 2rem;
+    color: #fff;
+  }
+  
